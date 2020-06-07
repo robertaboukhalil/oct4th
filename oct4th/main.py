@@ -3,6 +3,7 @@ import os
 import csv
 import argparse
 import xlsxwriter
+from ast import literal_eval
 
 
 def csv_to_xlsx(file_in, file_out=None, force=False):
@@ -38,8 +39,7 @@ def csv_to_xlsx(file_in, file_out=None, force=False):
             if line_nb % 1000 == 0 or line_nb == nb_lines:
                 print(f"\r  > Parsed {line_nb:,} / {nb_lines:,} rows - {pct}% done", end="")
             # Append row to worksheet
-            worksheet.write_row(row=i, col=0, data=row)
-        # print(f"\r  > Parsed {nb_lines:,} / {nb_lines:,} rows - 100% done")
+            worksheet.write_row(row=i, col=0, data=map(str_to_num, row))
 
     # Write XLSX file
     print(f"  > Writing to {file_out}")
