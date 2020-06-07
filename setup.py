@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="oct4th",
-    version="1.0.0b8",
+    version="1.0.0",
     author="Robert Aboukhalil",
     author_email="robert.aboukhalil@gmail.com",
     description="Convert CSV/TSV files into XLSX",
