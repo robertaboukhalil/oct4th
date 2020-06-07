@@ -25,7 +25,7 @@ oct4th --input ./data/test.csv --output ./data/test.xlsx
 import oct4th
 
 # Convert a CSV file to XLSX
-oct4th.csv_to_xlsx(file_in='./data/test.csv', file_out='./data/test.xlsx')
+oct4th.csv_to_xlsx(file_in="./data/test.csv", file_out="./data/test.xlsx")
 ```
 
 ## Developing
@@ -33,7 +33,7 @@ oct4th.csv_to_xlsx(file_in='./data/test.csv', file_out='./data/test.xlsx')
 ```bash
 python3 -m venv ve
 . ve/bin/activate
-pip install setuptools wheel pytest xlsxwriter pandas xlrd
+pip install setuptools wheel twine pytest xlsxwriter pandas xlrd
 ```
 
 ## Run Tests
@@ -53,5 +53,5 @@ python3 setup.py sdist bdist_wheel
 python3 -m twine upload --repository testpypi dist/*
 
 # Test install
-pip3 install -U -i https://test.pypi.org/simple/ oct4th==1.0.0b8
+deactivate; pip3 install -U -i https://test.pypi.org/simple/ oct4th==1.0.0b9
 ```
