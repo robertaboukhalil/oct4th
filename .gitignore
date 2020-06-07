@@ -1,4 +1,6 @@
 build/
 dist/
+ve/
 oct4th.egg-info/
+__pycache__/
 data/test.xlsx
