@@ -7,7 +7,7 @@ To learn more about this issue, check out [this article](https://medium.com/@rob
 ## Installation
 
 ```bash
-pip3 install oct4th
+pip3 install -U oct4th
 ```
 
 ## Usage
