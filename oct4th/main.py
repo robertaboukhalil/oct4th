@@ -47,6 +47,13 @@ def csv_to_xlsx(file_in, file_out=None, force=False):
     print(f"  > Done")
 
 
+def str_to_num(str):
+    try:
+        return literal_eval(str)
+    except Exception as _:
+        return str
+
+
 def cli():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True, help="CSV/TSV to convert to XLSX (e.g. input.csv)")
