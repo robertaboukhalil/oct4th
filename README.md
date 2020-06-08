@@ -48,12 +48,19 @@ PYTHONPATH=. pytest ./tests/
 
 ```bash
 # Clean up and rebuild
+. ve/bin/activate
 rm -rf ./build/ ./dist/
 python3 setup.py sdist bdist_wheel
+
+# Check before deploying
+twine check dist/*
 
 # Upload to testpypi
 python3 -m twine upload --repository testpypi dist/*
 
 # Test install
 deactivate; pip3 install -U -i https://test.pypi.org/simple/ oct4th==1.0.0b9
+
+# Deploy to pypi
+# python3 -m twine upload --repository pypi dist/*
 ```
