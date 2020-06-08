@@ -12,6 +12,8 @@ To learn more about this issue, check out [this article](https://medium.com/@rob
 pip3 install -U oct4th
 ```
 
+If you don't have access to a computer where you can run `pip`, check out this [Colab notebook](https://colab.research.google.com/drive/1c7wGcEySoR6hIidVoZZKTQDYcOtC8UgU?usp=sharing).
+
 ## Usage
 
 ### As a CLI:
