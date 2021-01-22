@@ -6,7 +6,7 @@ import xlsxwriter
 from ast import literal_eval
 
 
-def csv_to_xlsx(file_in, file_out=None, force=False):
+def csv_to_xlsx(file_in, file_out=None,delim=None, force=False):
     # Generate output filename: splitext() returns tuple ( "file", "ext" )
     file_out = file_out or f"{os.path.splitext(file_in)[0]}.xlsx"
     if os.path.exists(file_out) and not force:
@@ -21,7 +21,9 @@ def csv_to_xlsx(file_in, file_out=None, force=False):
         print(f"{file_in}")
 
         # Read some of the file to determine delimiter
-        dialect = csv.Sniffer().sniff(f.read(1024))
+        if delim=='t' or delim=='tab': delim='\t'
+        dialect = csv.Sniffer().sniff(f.readline())
+        if delim!=None: dialect.delimiter = delim
         print(f"  > Detected delimiter={repr(dialect.delimiter)}")
         print(f"  > Detected line end={repr(dialect.lineterminator)}")
         f.seek(0)
@@ -57,12 +59,14 @@ def str_to_num(str):
 def cli():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True, help="CSV/TSV to convert to XLSX (e.g. input.csv)")
+    parser.add_argument("--delim", required=False, help="delimiter",default=None)
     parser.add_argument("--output", required=False, help="Where to output XLSX file (defaults to input.xlsx)")
     parser.add_argument("--force", required=False, action="store_true", help="Overwrite XLSX file if one exists already")
     args = parser.parse_args()
     csv_to_xlsx(
         file_in=args.input,
         file_out=args.output,
+        delim=args.delim,
         force=args.force
     )
 
