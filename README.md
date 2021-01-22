@@ -1,4 +1,15 @@
 # oct4th
+------------------
+
+there were some issues with tab delimited files and this script.
+
+```
+oct4th --input all_final_sample_genetic_manifest.tsv --delim tab
+oct4th --input all_final_sample_genetic_manifest.tsv --delim t
+```
+
+------------------
+
 
 CLI tool to convert CSV/TSV files to Excel spreadsheets, while not converting gene names (e.g. OCT4, DEC1) into dates in the process.
 
